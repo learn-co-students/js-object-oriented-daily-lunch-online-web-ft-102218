@@ -27,9 +27,17 @@ class Neighborhood {
     }
 
     meals() {
-        return this.deliveries().map(function(delivery) {
+        let mealsAry = []
+        
+        let meals = this.deliveries().map(function(delivery) {
             return delivery.meal()
-        })
+        }).forEach(function(item) {
+            if (!mealsAry.includes(item)) {
+                mealsAry.push(item)
+            }
+        }) 
+
+        return mealsAry
     }
 }
 
